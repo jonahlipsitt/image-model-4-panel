@@ -1,0 +1,24 @@
+# Output directories
+outputs/
+outputs_*/
+*.log
+
+# Environment files
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+temp_*
+*.tmp

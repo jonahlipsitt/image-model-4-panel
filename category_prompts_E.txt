@@ -1,0 +1,371 @@
+# IMAGE-EDIT BENCHMARK FINAL — COMPREHENSIVE MULTI-MODEL EDITING TESTS
+# Models under test: Qwen Image Edit Plus • Google nano-banana • OpenAI GPT-IMAGE-1 • ByteDance SeDream-4
+# Format: [TEST-ID] [n-image] images: ALIASES edit: INSTRUCTION
+
+# VERIFIED WORKING ASSET LIBRARY (from images.txt)
+PORTRAIT_WOMAN_A -> https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg
+PORTRAIT_WOMAN_SMILING_A -> https://images.pexels.com/photos/25916738/pexels-photo-25916738.jpeg
+PORTRAIT_WOMAN_CURLY_A -> https://images.pexels.com/photos/12701856/pexels-photo-12701856.jpeg
+PORTRAIT_WOMAN_CURLY_B -> https://images.pexels.com/photos/16946641/pexels-photo-16946641.jpeg
+PORTRAIT_WOMAN_CURLY_STUDIO_A -> https://images.pexels.com/photos/33690466/pexels-photo-33690466.jpeg
+PORTRAIT_WOMAN_CURLY_STUDIO_B -> https://images.pexels.com/photos/13178124/pexels-photo-13178124.jpeg
+PORTRAIT_WOMAN_STUDIO_A -> https://images.pexels.com/photos/17123841/pexels-photo-17123841.jpeg
+PORTRAIT_WOMAN_HAPPY_A -> https://images.pexels.com/photos/33621375/pexels-photo-33621375.jpeg
+PORTRAIT_WOMAN_BROWN_HAT -> https://images.pexels.com/photos/2732153/pexels-photo-2732153.jpeg
+PORTRAIT_WOMAN_LONG_HAIR -> https://images.pexels.com/photos/18926410/pexels-photo-18926410.jpeg
+PORTRAIT_WOMAN_PATTERNED_PONCHO -> https://images.pexels.com/photos/6188869/pexels-photo-6188869.jpeg
+PORTRAIT_MAN_A -> https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg
+PORTRAIT_MAN_B -> https://images.pexels.com/photos/34075276/pexels-photo-34075276.jpeg
+PORTRAIT_MAN_YELLOW_BG_A -> https://images.pexels.com/photos/14599315/pexels-photo-14599315.jpeg
+PORTRAIT_MAN_SMILING_BLOND_A -> https://images.pexels.com/photos/5975997/pexels-photo-5975997.jpeg
+PORTRAIT_CHILD -> https://images.pexels.com/photos/2433279/pexels-photo-2433279.jpeg
+PORTRAIT_CHILD_RED_SWEATER_A -> https://images.pexels.com/photos/2433279/pexels-photo-2433279.jpeg
+PORTRAIT_ELDERLY -> https://images.pexels.com/photos/12645007/pexels-photo-12645007.jpeg
+PORTRAIT_ELDERLY_B -> https://images.pexels.com/photos/18377277/pexels-photo-18377277.jpeg
+PORTRAIT_ELDERLY_C -> https://images.pexels.com/photos/14149354/pexels-photo-14149354.jpeg
+GROUP_FRIENDS -> https://images.pexels.com/photos/20489745/pexels-photo-20489745.jpeg
+GROUP_FRIENDS_B -> https://images.pexels.com/photos/8777831/pexels-photo-8777831.jpeg
+GROUP_FRIENDS_LAUGHING_A -> https://images.pexels.com/photos/4244572/pexels-photo-4244572.jpeg
+BUSINESS_TEAM -> https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg
+BUSINESS_TEAM_LAPTOP_A -> https://images.pexels.com/photos/13821587/pexels-photo-13821587.jpeg
+BUSINESS_MEETING_OVERHEAD -> https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg
+BUSINESS_MEETING_TEAM -> https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg
+BUSINESS_HANDSHAKE_OFFICE -> https://images.pexels.com/photos/7875996/pexels-photo-7875996.jpeg
+WEDDING_COUPLE -> https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg
+FAMILY_KITCHEN -> https://images.pexels.com/photos/4259140/pexels-photo-4259140.jpeg
+FAMILY_PICNIC_PARK -> https://images.pexels.com/photos/5119595/pexels-photo-5119595.jpeg
+
+LIVING_ROOM_MODERN -> https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg
+LIVING_ROOM_MODERN_B -> https://images.pexels.com/photos/30075355/pexels-photo-30075355.jpeg
+LIVING_ROOM_PLANTS_CORNER -> https://images.pexels.com/photos/23910315/pexels-photo-23910315.jpeg
+LIVING_ROOM_COZY_C -> https://images.pexels.com/photos/6256456/pexels-photo-6256456.jpeg
+BEDROOM_COZY -> https://images.pexels.com/photos/30761661/pexels-photo-30761661.jpeg
+BEDROOM_COZY_B -> https://images.pexels.com/photos/20519035/pexels-photo-20519035.jpeg
+BEDROOM_MINIMAL_B -> https://images.pexels.com/photos/28456462/pexels-photo-28456462.jpeg
+BEDROOM_SCANDINAVIAN_A -> https://images.pexels.com/photos/30509736/pexels-photo-30509736.jpeg
+KITCHEN_WHITE -> https://images.pexels.com/photos/1599791/pexels-photo-1599791.jpeg
+KITCHEN_ISLAND_MARBLE_A -> https://images.pexels.com/photos/18285876/pexels-photo-18285876.jpeg
+KITCHEN_ISLAND_MARBLE_B -> https://images.pexels.com/photos/20424093/pexels-photo-20424093.jpeg
+BATHROOM_WHITE_TILE_A -> https://images.pexels.com/photos/19827233/pexels-photo-19827233.jpeg
+BATHROOM_WHITE_TUB_A -> https://images.pexels.com/photos/8031895/pexels-photo-8031895.jpeg
+OFFICE_MODERN -> https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg
+CAFE_INTERIOR_B -> https://images.pexels.com/photos/17882547/pexels-photo-17882547.jpeg
+CAFE_INTERIOR_PARIS_A -> https://images.pexels.com/photos/33806188/pexels-photo-33806188.jpeg
+RESTAURANT_ELEGANT -> https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg
+RESTAURANT_ELEGANT_B -> https://images.pexels.com/photos/33948377/pexels-photo-33948377.jpeg
+RESTAURANT_ELEGANT_C -> https://images.pexels.com/photos/32833843/pexels-photo-32833843.jpeg
+LIBRARY_VINTAGE -> https://images.pexels.com/photos/6761492/pexels-photo-6761492.jpeg
+LIBRARY_INTERIOR_B -> https://images.pexels.com/photos/25852451/pexels-photo-25852451.jpeg
+LIBRARY_WALKWAY_A -> https://images.pexels.com/photos/18587783/pexels-photo-18587783.jpeg
+LIBRARY_RUSTIC_SHELVES_A -> https://images.pexels.com/photos/4065417/pexels-photo-4065417.jpeg
+STORE_VINTAGE_A -> https://images.pexels.com/photos/17911036/pexels-photo-17911036.jpeg
+STORE_ANTIQUE_A -> https://images.pexels.com/photos/30133567/pexels-photo-30133567.jpeg
+PHOTO_STUDIO_EMPTY_B -> https://images.pexels.com/photos/18899950/pexels-photo-18899950.jpeg
+PHOTO_STUDIO_EMPTY_C -> https://images.pexels.com/photos/17313420/pexels-photo-17313420.jpeg
+TRAIN_INTERIOR_A -> https://images.pexels.com/photos/32043127/pexels-photo-32043127.jpeg
+HALLWAY_MINIMAL_A -> https://images.pexels.com/photos/3935332/pexels-photo-3935332.jpeg
+
+CAR_RED_SPORTS -> https://images.pexels.com/photos/544542/pexels-photo-544542.jpeg
+CAR_WHITE_SUV -> https://images.pexels.com/photos/33980827/pexels-photo-33980827.jpeg
+CAR_WHITE_SUV_CITY_A -> https://images.pexels.com/photos/1049575/pexels-photo-1049575.jpeg
+CAR_WHITE_SUV_OUTDOOR_A -> https://images.pexels.com/photos/33145484/pexels-photo-33145484.jpeg
+SUV_WHITE_B -> https://images.pexels.com/photos/19410452/pexels-photo-19410452.jpeg
+SUV_WHITE_C -> https://images.pexels.com/photos/33980823/pexels-photo-33980823.jpeg
+MOTORCYCLE_BLACK -> https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg
+MOTORCYCLE_BLACK_COUNTRY_A -> https://images.pexels.com/photos/33005108/pexels-photo-33005108.jpeg
+MOTORCYCLE_BLACK_PATH_A -> https://images.pexels.com/photos/30640078/pexels-photo-30640078.jpeg
+BICYCLE_VINTAGE -> https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg
+DELIVERY_TRUCK_STREET_A -> https://images.pexels.com/photos/20584482/pexels-photo-20584482.jpeg
+DELIVERY_TRUCK_CITY_A -> https://images.pexels.com/photos/20584482/pexels-photo-20584482.jpeg
+
+LAPTOP_SILVER -> https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg
+LAPTOP_ON_DESK_A -> https://images.pexels.com/photos/374091/pexels-photo-374091.jpeg
+LAPTOP_MAC_CLOSEUP_A -> https://images.pexels.com/photos/12709580/pexels-photo-12709580.jpeg
+PHONE_SMARTPHONE -> https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg
+SMARTPHONE_IN_HAND_A -> https://images.pexels.com/photos/376971/pexels-photo-376971.jpeg
+CAMERA_VINTAGE -> https://images.pexels.com/photos/821651/pexels-photo-821651.jpeg
+CAMERA_DSLR_TABLE_A -> https://images.pexels.com/photos/13011070/pexels-photo-13011070.jpeg
+HEADPHONES_WHITE -> https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg
+WATCH_LUXURY -> https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg
+GUITAR_ACOUSTIC -> https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg
+MICROPHONE_PODCAST_A -> https://images.pexels.com/photos/13044704/pexels-photo-13044704.jpeg
+BOOK_STACK -> https://images.pexels.com/photos/1148399/pexels-photo-1148399.jpeg
+BILLBOARD_BLANK -> https://images.pexels.com/photos/2371918/pexels-photo-2371918.jpeg
+BILLBOARD_BLANK_URBAN_A -> https://images.pexels.com/photos/4913828/pexels-photo-4913828.jpeg
+DOOR_WOODEN -> https://images.pexels.com/photos/277559/pexels-photo-277559.jpeg
+WINDOW_LARGE -> https://images.pexels.com/photos/1571467/pexels-photo-1571467.jpeg
+WINDOW_SHADOWS_MINIMAL_A -> https://images.pexels.com/photos/18886987/pexels-photo-18886987.jpeg
+PIANO -> https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg
+DJ_MIXER_LIGHTS_A -> https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg
+WALL_BRICK_TEXTURE_A -> https://images.pexels.com/photos/19884844/pexels-photo-19884844.jpeg
+WALL_CONCRETE_WEATHERED_A -> https://images.pexels.com/photos/30397830/pexels-photo-30397830.jpeg
+FABRIC_LINEN_TEXTURE_A -> https://images.pexels.com/photos/7794365/pexels-photo-7794365.jpeg
+NEON_LIGHTS_ABSTRACT_A -> https://images.pexels.com/photos/31511724/pexels-photo-31511724.jpeg
+DRONE_QUADCOPTER_SKY_A -> https://images.pexels.com/photos/1034812/pexels-photo-1034812.jpeg
+DRONE_URBAN_FLIGHT_A -> https://images.pexels.com/photos/19131319/pexels-photo-19131319.jpeg
+DRONE_FLYING_CLEAR_SKY_B -> https://images.pexels.com/photos/19806135/pexels-photo-19806135.jpeg
+DRONE_SUNSET_SILHOUETTE_A -> https://images.pexels.com/photos/18099050/pexels-photo-18099050.jpeg
+DRONE_URBAN_PARK_A -> https://images.pexels.com/photos/31935681/pexels-photo-31935681.jpeg
+PIANO_KEYS_B -> https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg
+
+COFFEE_CUP -> https://images.pexels.com/photos/851555/pexels-photo-851555.jpeg
+WINE_GLASS -> https://images.pexels.com/photos/11207623/pexels-photo-11207623.jpeg
+PLATE_DINNER -> https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg
+FRUITS_MIXED -> https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg
+FLOWERS_BOUQUET -> https://images.pexels.com/photos/1484657/pexels-photo-1484657.jpeg
+PLANT_SUCCULENT -> https://images.pexels.com/photos/4973043/pexels-photo-4973043.jpeg
+SUSHI_PLATTER_A -> https://images.pexels.com/photos/30990197/pexels-photo-30990197.jpeg
+SUSHI_PLATE_CHOPSTICKS_A -> https://images.pexels.com/photos/17584489/pexels-photo-17584489.jpeg
+FOOD_WILD_MUSHROOMS -> https://images.pexels.com/photos/34042441/pexels-photo-34042441.jpeg
+STREET_MARKET_PRODUCE_STALL -> https://images.pexels.com/photos/31542062/pexels-photo-31542062.jpeg
+
+DOG_GOLDEN -> https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg
+DOG_LABRADOR_BLACK_A -> https://images.pexels.com/photos/29136873/pexels-photo-29136873.jpeg
+CAT_TABBY -> https://images.pexels.com/photos/31765575/pexels-photo-31765575.jpeg
+CAT_TABBY_B -> https://images.pexels.com/photos/12297231/pexels-photo-12297231.jpeg
+CAT_TABBY_C -> https://images.pexels.com/photos/14767093/pexels-photo-14767093.jpeg
+CAT_TABBY_CLOSEUP_A -> https://images.pexels.com/photos/34011091/pexels-photo-34011091.jpeg
+BIRD_PARROT -> https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg
+OWL_HORNED_PORTRAIT_A -> https://images.pexels.com/photos/28540926/pexels-photo-28540926.jpeg
+HORSE_BROWN -> https://images.pexels.com/photos/32651700/pexels-photo-32651700.jpeg
+HORSE_BROWN_B -> https://images.pexels.com/photos/18530441/pexels-photo-18530441.jpeg
+COW_BROWN_PORTRAIT_A -> https://images.pexels.com/photos/33963073/pexels-photo-33963073.jpeg
+ANIMAL_LION_SAVANNAH -> https://images.pexels.com/photos/13449665/pexels-photo-13449665.jpeg
+BUTTERFLY_COLORFUL -> https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg
+BUTTERFLY_MONARCH_LEAF_A -> https://images.pexels.com/photos/33697938/pexels-photo-33697938.jpeg
+BUTTERFLY_BLUE_CLOSEUP_A -> https://images.pexels.com/photos/33108141/pexels-photo-33108141.jpeg
+FISH_TROPICAL_AQUARIUM_A -> https://images.pexels.com/photos/33593384/pexels-photo-33593384.jpeg
+
+NATURE_WATERFALL -> https://images.pexels.com/photos/1875480/pexels-photo-1875480.jpeg
+NATURE_WATERFALL_BRIDGE -> https://images.pexels.com/photos/358457/pexels-photo-358457.jpeg
+NATURE_BEACH -> https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg
+NATURE_BEACH_SUNRISE -> https://images.pexels.com/photos/32920800/pexels-photo-32920800.jpeg
+BEACH_SUNSET_B -> https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg
+NATURE_MOUNTAIN -> https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg
+NATURE_MOUNTAIN_SNOW_WINTER -> https://images.pexels.com/photos/31718574/pexels-photo-31718574.jpeg
+NATURE_FOREST_AUTUMN_PATH -> https://images.pexels.com/photos/34011391/pexels-photo-34011391.jpeg
+NATURE_DESERT -> https://images.pexels.com/photos/18573922/pexels-photo-18573922.jpeg
+DESERT_DUNES_B -> https://images.pexels.com/photos/30032405/pexels-photo-30032405.jpeg
+NATURE_LAKE_MOUNTAIN_REFLECTION -> https://images.pexels.com/photos/30963641/pexels-photo-30963641.jpeg
+CITY_SKYLINE -> https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg
+CITY_STREET_NEON_NIGHT -> https://images.pexels.com/photos/4132321/pexels-photo-4132321.jpeg
+STREET_URBAN -> https://images.pexels.com/photos/12564067/pexels-photo-12564067.jpeg
+STREET_NYC_CROSSWALK_A -> https://images.pexels.com/photos/20011279/pexels-photo-20011279.jpeg
+STREET_NYC_CROSSWALK_B -> https://images.pexels.com/photos/22453835/pexels-photo-22453835.jpeg
+RIVER_GORGE_FOREST -> https://images.pexels.com/photos/1766838/pexels-photo-1766838.jpeg
+
+# FACE EDITING & IDENTITY — 15 tests for facial modification mastery
+[FE-01] [1-image] images: PORTRAIT_WOMAN_A edit: Change hair color to deep auburn with natural highlights; preserve skin tone and hairline exactly. region_hint: hair
+[FE-02] [1-image] images: PORTRAIT_WOMAN_CURLY_A edit: Add black rectangular eyeglasses that fit perfectly; realistic lens reflections; keep every eyelash visible. region_hint: around eyes
+[FE-03] [1-image] images: PORTRAIT_MAN_A edit: Add a perfectly groomed full beard and mustache; maintain exact facial bone structure and lighting direction.
+[FE-04] [1-image] images: PORTRAIT_WOMAN_STUDIO_A edit: Convert lighting to soft window light from camera-left at 45-degree angle; maintain precise color temperature.
+[FE-05] [1-image] images: PORTRAIT_MAN_SMILING_BLOND_A edit: Change eye color to emerald green while preserving pupil size, iris texture, and corneal reflections.
+[FE-06] [1-image] images: PORTRAIT_CHILD edit: Age by exactly 8 years, adjusting facial proportions, height, and maturity; keep core identity recognizable.
+[FE-07] [1-image] images: PORTRAIT_ELDERLY edit: Reduce apparent age by 25 years, smoothing wrinkles and restoring natural hair color; maintain facial structure.
+[FE-08] [1-image] images: PORTRAIT_WOMAN_HAPPY_A edit: Add subtle natural freckles across nose and cheeks following anatomical contours; blend seamlessly.
+[FE-09] [1-image] images: PORTRAIT_MAN_YELLOW_BG_A edit: Style hair into modern pompadour with visible texture, natural shine, and realistic hair physics.
+[FE-10] [1-image] images: PORTRAIT_CHILD edit: Add butterfly face painting on left cheek with vibrant child-safe colors and realistic skin texture.
+[FE-11] [2-image] images: PORTRAIT_WOMAN_CURLY_B | PORTRAIT_MAN_B edit: Create vertical 50/50 face blend maintaining both identities without morphing or distortion.
+[FE-12] [1-image] images: PORTRAIT_ELDERLY_B edit: Convert to authentic 1940s black and white portrait with period-accurate film grain and contrast.
+[FE-13] [1-image] images: PORTRAIT_WOMAN_LONG_HAIR edit: Transform into anime style with large expressive eyes and stylized features while keeping recognizable.
+[FE-14] [1-image] images: PORTRAIT_MAN_A edit: Add realistic battle scars across forehead and left cheek; maintain serious expression and skin texture.
+[FE-15] [3-image] images: PORTRAIT_WOMAN_PATTERNED_PONCHO | PORTRAIT_MAN_B | PORTRAIT_CHILD edit: Compose family portrait with proper scale relationships and unified lighting.
+
+# TEXT & SIGNAGE MASTERY — 20 tests for typography and spatial text placement
+[TX-01] [1-image] images: BILLBOARD_BLANK edit: Design movie poster with "ADVENTURE AWAITS" in bold red Helvetica and "Coming 2025" subtitle respecting perspective.
+[TX-02] [1-image] images: WALL_BRICK_TEXTURE_A edit: Add graffiti "ART IS FREEDOM" in vibrant blue spray paint with realistic drip effects and brick surface interaction.
+[TX-03] [1-image] images: WINDOW_LARGE edit: Apply "SALE 50% OFF" in large white vinyl letters with correct perspective distortion and glass transparency.
+[TX-04] [1-image] images: CAR_RED_SPORTS edit: Add "PROTOTYPE" text along side in futuristic font matching car's design language and surface curvature.
+[TX-05] [1-image] images: CAFE_INTERIOR_B edit: Create chalk menu board showing "Today's Special: Artisan Coffee $4.50" with authentic chalk texture and lighting.
+[TX-06] [2-image] images: BILLBOARD_BLANK_URBAN_A | COFFEE_CUP edit: Design coffee advertisement with cup hero shot and "PERFECT MORNING" headline in premium typography.
+[TX-07] [2-image] images: WALL_BRICK_TEXTURE_A | GUITAR_ACOUSTIC edit: Create street art mural featuring guitar with "MUSIC LIVES HERE" in authentic graffiti style.
+[TX-08] [1-image] images: BOOK_STACK edit: Replace book spines with "AI Ethics", "Future Tech", and "Digital Art" in appropriate academic fonts and aging.
+[TX-09] [3-image] images: BILLBOARD_BLANK | PORTRAIT_WOMAN_STUDIO_A | FLOWERS_BOUQUET edit: Create perfume advertisement with portrait, flowers, and "Essence - Natural Beauty" in elegant serif.
+[TX-10] [1-image] images: LAPTOP_MAC_CLOSEUP_A edit: Add subtle "MacBook Pro" logo on lid with precise Apple typography and proper metallic embossing.
+[TX-11] [2-image] images: RESTAURANT_ELEGANT_B | WINE_GLASS edit: Design wine menu poster with elegant calligraphy reading "Reserve Collection Est. 1985".
+[TX-12] [1-image] images: MOTORCYCLE_BLACK_COUNTRY_A edit: Add flame decals along gas tank with "THUNDER ROAD" in authentic biker-style lettering.
+[TX-13] [2-image] images: OFFICE_MODERN | LAPTOP_ON_DESK_A edit: Create productivity poster with "WORK SMART" in clean sans-serif positioned above laptop screen.
+[TX-14] [1-image] images: LIBRARY_RUSTIC_SHELVES_A edit: Add brass plaque "ESTABLISHED 1892" above bookshelf with period-appropriate typography and patina.
+[TX-15] [3-image] images: CAR_WHITE_SUV_OUTDOOR_A | NATURE_MOUNTAIN | BILLBOARD_BLANK edit: Create SUV adventure ad with mountain backdrop and "EXPLORE MORE" tagline.
+[TX-16] [1-image] images: PHONE_SMARTPHONE edit: Add iOS app icons on screen including Messages, Camera, Settings with authentic Apple design language.
+[TX-17] [2-image] images: KITCHEN_ISLAND_MARBLE_A | COFFEE_CUP edit: Add kitchen wall decal "Good Morning Sunshine" in cursive script above coffee station.
+[TX-18] [1-image] images: WATCH_LUXURY edit: Engrave "LIMITED EDITION 001/500" on watch face with microscopic precision and luxury brand typography.
+[TX-19] [2-image] images: NATURE_BEACH | CITY_SKYLINE edit: Create travel poster with "ESCAPE THE CITY" text transitioning between urban and beach scenes.
+[TX-20] [3-image] images: PHOTO_STUDIO_EMPTY_B | PORTRAIT_MAN_B | HEADPHONES_WHITE edit: Design music studio poster with portrait, headphones, and "STUDIO SESSIONS" branding.
+
+# OBJECT REMOVAL & PRECISION INPAINTING — 15 tests for seamless content removal
+[RM-01] [1-image] images: LIVING_ROOM_MODERN edit: Remove coffee table completely and reconstruct rug pattern, floor texture, and lighting underneath.
+[RM-02] [1-image] images: KITCHEN_ISLAND_MARBLE_B edit: Remove all countertop appliances and restore pristine marble surface with consistent veining and reflections.
+[RM-03] [1-image] images: OFFICE_MODERN edit: Remove desk chair and reconstruct floor pattern with accurate perspective and ambient lighting.
+[RM-04] [1-image] images: NATURE_FOREST_AUTUMN_PATH edit: Remove fallen log and replace with authentic forest floor vegetation matching seasonal colors.
+[RM-05] [1-image] images: STREET_NYC_CROSSWALK_A edit: Remove all pedestrians and reconstruct clean crosswalk with proper road markings and urban context.
+[RM-06] [1-image] images: CAFE_INTERIOR_PARIS_A edit: Remove all customers and personal items while preserving furniture arrangement and ambient lighting.
+[RM-07] [1-image] images: BEDROOM_COZY edit: Remove bedside lamp and table; reconstruct wall texture, baseboard, and natural lighting patterns.
+[RM-08] [1-image] images: NATURE_BEACH edit: Remove all footprints from sand and create pristine beach surface with natural wind patterns.
+[RM-09] [1-image] images: PORTRAIT_WOMAN_BROWN_HAT edit: Remove hat completely and reconstruct natural hair volume and scalp lighting.
+[RM-10] [1-image] images: CAR_RED_SPORTS edit: Remove license plate and reconstruct bumper surface with original paint finish and reflections.
+[RM-11] [2-image] images: LIVING_ROOM_PLANTS_CORNER | PLANT_SUCCULENT edit: Replace existing plant with succulent matching natural lighting and pot placement.
+[RM-12] [1-image] images: RESTAURANT_ELEGANT edit: Remove all table settings and restore clean wooden table surfaces with grain patterns.
+[RM-13] [1-image] images: LIBRARY_INTERIOR_B edit: Remove specific books from center shelf and reconstruct consistent backing and shelf lighting.
+[RM-14] [2-image] images: KITCHEN_WHITE | FRUITS_MIXED edit: Remove existing items from counter and arrange fresh fruit display naturally.
+[RM-15] [3-image] images: CAFE_INTERIOR_B | COFFEE_CUP | LAPTOP_SILVER edit: Clear table completely and reset with precise coffee cup and laptop arrangement.
+
+# BACKGROUND REPLACEMENT & ENVIRONMENTAL COMPOSITING — 20 tests for scene mastery
+[BG-01] [2-image] images: PORTRAIT_WOMAN_CURLY_STUDIO_A | NATURE_WATERFALL edit: Composite portrait into waterfall setting with matching natural lighting and mist effects.
+[BG-02] [2-image] images: CAR_WHITE_SUV | NATURE_DESERT edit: Transport SUV to desert with accurate sand displacement, heat haze, and harsh lighting.
+[BG-03] [2-image] images: PORTRAIT_MAN_SMILING_BLOND_A | OFFICE_MODERN edit: Place executive in modern office with perfect interior lighting match and professional context.
+[BG-04] [2-image] images: DOG_GOLDEN | NATURE_BEACH_SUNRISE edit: Move puppies to sunrise beach with golden hour lighting, sand interaction, and coastal atmosphere.
+[BG-05] [2-image] images: CAT_TABBY_B | LIVING_ROOM_COZY_C edit: Position cat naturally on furniture with realistic physics and domestic lighting.
+[BG-06] [2-image] images: GUITAR_ACOUSTIC | CAFE_INTERIOR_PARIS_A edit: Stage guitar for acoustic performance with authentic cafe ambiance and audience perspective.
+[BG-07] [2-image] images: LAPTOP_SILVER | LIBRARY_VINTAGE edit: Integrate modern laptop anachronistically in vintage library with period-appropriate positioning.
+[BG-08] [2-image] images: WEDDING_COUPLE | NATURE_MOUNTAIN edit: Transport couple to mountain vista for epic wedding photography with dramatic landscape.
+[BG-09] [2-image] images: MOTORCYCLE_BLACK | STREET_NYC_CROSSWALK_B edit: Position motorcycle naturally on NYC street with accurate shadows and urban integration.
+[BG-10] [2-image] images: FLOWERS_BOUQUET | RESTAURANT_ELEGANT_C edit: Place bouquet as elegant centerpiece with realistic table lighting and fine dining context.
+[BG-11] [3-image] images: BUSINESS_TEAM | OFFICE_MODERN | CITY_SKYLINE edit: Composite team meeting with city view through windows showing proper interior/exterior lighting.
+[BG-12] [2-image] images: HORSE_BROWN | NATURE_FOREST_AUTUMN_PATH edit: Position horse in forest clearing with dappled autumn sunlight and natural animal behavior.
+[BG-13] [2-image] images: CAMERA_VINTAGE | PHOTO_STUDIO_EMPTY_B edit: Set up vintage camera in modern studio for artistic contrast and professional photography setup.
+[BG-14] [2-image] images: BIRD_PARROT | NATURE_WATERFALL_BRIDGE edit: Perch parrot naturally on bridge structure with tropical environment and realistic bird behavior.
+[BG-15] [3-image] images: FAMILY_KITCHEN | FRUITS_MIXED | COFFEE_CUP edit: Create family breakfast scene with natural food arrangement and morning lighting.
+[BG-16] [2-image] images: WATCH_LUXURY | BEDROOM_SCANDINAVIAN_A edit: Display watch on bedside table as prized possession with luxury presentation and bedroom lighting.
+[BG-17] [2-image] images: BICYCLE_VINTAGE | CAFE_INTERIOR_B edit: Park bicycle inside cafe as trendy urban decor with realistic interior integration.
+[BG-18] [2-image] images: SMARTPHONE_IN_HAND_A | KITCHEN_ISLAND_MARBLE_A edit: Stage phone naturally on counter as if charging during meal prep.
+[BG-19] [3-image] images: GROUP_FRIENDS_LAUGHING_A | NATURE_BEACH | CITY_SKYLINE edit: Create vacation photo with friends on beach and distant city skyline.
+[BG-20] [2-image] images: DELIVERY_TRUCK_STREET_A | STREET_URBAN edit: Position delivery truck naturally in urban environment with traffic context and realistic shadows.
+
+# COLOR & MATERIAL TRANSFORMATION — 15 tests for surface and texture mastery
+[CM-01] [1-image] images: CAR_RED_SPORTS edit: Transform paint to metallic midnight blue with pearl finish while preserving chrome trim and reflections.
+[CM-02] [1-image] images: KITCHEN_ISLAND_MARBLE_A edit: Recolor cabinets to sage green while maintaining wood grain texture and hardware details.
+[CM-03] [1-image] images: COFFEE_CUP edit: Transform ceramic to clear glass with realistic refraction, transparency, and light interaction.
+[CM-04] [1-image] images: WALL_BRICK_TEXTURE_A edit: Paint bricks pure white while preserving mortar lines, texture variations, and shadow details.
+[CM-05] [1-image] images: GUITAR_ACOUSTIC edit: Change wood finish to deep mahogany with high-gloss lacquer and authentic wood grain patterns.
+[CM-06] [1-image] images: LAPTOP_SILVER edit: Recolor to rose gold with matching Apple aesthetic and proper metallic surface reflections.
+[CM-07] [1-image] images: FLOWERS_BOUQUET edit: Convert all flowers to pure white while maintaining green stems, leaves, and natural petal textures.
+[CM-08] [1-image] images: MOTORCYCLE_BLACK_PATH_A edit: Apply candy apple red paint job with flame graphics maintaining realistic metallic depth.
+[CM-09] [1-image] images: HEADPHONES_WHITE edit: Transform to professional black studio headphones with leather padding and metal accents.
+[CM-10] [2-image] images: LIVING_ROOM_MODERN_B | CAR_RED_SPORTS edit: Coordinate living room color palette with car's red and black scheme for design harmony.
+[CM-11] [1-image] images: WATCH_LUXURY edit: Change metal from gold to platinum with corresponding dial adjustments and authentic material properties.
+[CM-12] [1-image] images: NATURE_FOREST_AUTUMN_PATH edit: Transform to spring colors - change autumn leaves to fresh green foliage and vibrant growth.
+[CM-13] [1-image] images: BEDROOM_MINIMAL_B edit: Recolor bedding from current palette to navy blue and cream coordination.
+[CM-14] [2-image] images: DOG_LABRADOR_BLACK_A | HORSE_BROWN_B edit: Swap coat colors while maintaining breed characteristics and natural fur/hair texture.
+[CM-15] [3-image] images: CAFE_INTERIOR_PARIS_A | COFFEE_CUP | NATURE_WATERFALL edit: Harmonize all elements into cohesive earth-tone palette with atmospheric unity.
+
+# LIGHTING & ATMOSPHERIC MASTERY — 20 tests for illumination and mood
+[LS-01] [1-image] images: PORTRAIT_WOMAN_CURLY_STUDIO_B edit: Add dramatic Rembrandt lighting with precise 45-degree key light and controlled fill ratios.
+[LS-02] [1-image] images: LIVING_ROOM_MODERN edit: Convert to golden hour with warm sunlight streaming through windows at 30-degree angle.
+[LS-03] [1-image] images: CAR_WHITE_SUV_CITY_A edit: Add three-point studio lighting setup with key, fill, and rim lights for automotive photography.
+[LS-04] [1-image] images: NATURE_WATERFALL_BRIDGE edit: Create misty morning atmosphere with filtered sunbeams and atmospheric perspective through water spray.
+[LS-05] [1-image] images: RESTAURANT_ELEGANT edit: Establish romantic dinner ambiance with dimmed lighting while maintaining menu readability.
+[LS-06] [1-image] images: OFFICE_MODERN edit: Add harsh fluorescent lighting with subtle green tint characteristic of corporate environments.
+[LS-07] [1-image] images: BEDROOM_COZY_B edit: Create soft morning light filtering through sheer curtains with warm, inviting color temperature.
+[LS-08] [1-image] images: STREET_NYC_CROSSWALK_A edit: Transform to moody night scene with neon reflections and strategic street lamp illumination.
+[LS-09] [1-image] images: KITCHEN_WHITE edit: Add under-cabinet LED task lighting with cool white temperature and proper shadow casting.
+[LS-10] [1-image] images: NATURE_BEACH_SUNRISE edit: Enhance sunset with dramatic orange and purple sky reflecting accurately on water surface.
+[LS-11] [2-image] images: PORTRAIT_MAN_YELLOW_BG_A | WINDOW_SHADOWS_MINIMAL_A edit: Composite portrait with window light creating natural backlighting and rim effects.
+[LS-12] [1-image] images: CAFE_INTERIOR_PARIS_A edit: Add cozy evening ambiance with warm pendant lights and flickering candles on tables.
+[LS-13] [1-image] images: LIBRARY_WALKWAY_A edit: Create atmospheric dust motes in afternoon sunbeams streaming through library windows.
+[LS-14] [1-image] images: CAT_TABBY_CLOSEUP_A edit: Add rim lighting to create dramatic silhouette while preserving facial feature definition.
+[LS-15] [2-image] images: GUITAR_ACOUSTIC | PHOTO_STUDIO_EMPTY_C edit: Stage dramatic spotlight on guitar in dark studio with controlled spill and shadows.
+[LS-16] [1-image] images: WEDDING_COUPLE edit: Add soft fill flash to balance harsh outdoor shadows while maintaining romantic atmosphere.
+[LS-17] [1-image] images: NATURE_LAKE_MOUNTAIN_REFLECTION edit: Create early morning mist rising from water with soft diffused light and atmospheric depth.
+[LS-18] [2-image] images: BUSINESS_MEETING_TEAM | OFFICE_MODERN edit: Add conference room lighting with projector glow and professional presentation atmosphere.
+[LS-19] [1-image] images: BUTTERFLY_MONARCH_LEAF_A edit: Add magical sparkle effects and soft ethereal glow around wings while maintaining natural colors.
+[LS-20] [3-image] images: PORTRAIT_CHILD | BEDROOM_COZY | WINDOW_LARGE edit: Create bedtime scene with soft nightlight and gentle moonlight through window.
+
+# STYLE TRANSFER & ARTISTIC TRANSFORMATION — 15 tests for creative interpretation
+[ST-01] [1-image] images: PORTRAIT_WOMAN_PATTERNED_PONCHO edit: Transform into oil painting with visible impasto brush strokes and impressionist color theory.
+[ST-02] [1-image] images: NATURE_MOUNTAIN_SNOW_WINTER edit: Convert to watercolor with soft edge bleeding, transparent washes, and paper texture.
+[ST-03] [1-image] images: CAR_WHITE_SUV edit: Render as technical blueprint with precise engineering lines, measurements, and isometric projection.
+[ST-04] [1-image] images: CAT_TABBY_C edit: Transform into anime style with oversized eyes, stylized proportions, and cel-shading techniques.
+[ST-05] [1-image] images: CITY_STREET_NEON_NIGHT edit: Apply cyberpunk aesthetic with enhanced neon, digital glitches, and futuristic overlays.
+[ST-06] [1-image] images: FLOWERS_BOUQUET edit: Convert to vintage botanical illustration with scientific labeling and aged parchment texture.
+[ST-07] [1-image] images: PORTRAIT_MAN_A edit: Transform into charcoal portrait with dramatic contrast, artistic smudging, and paper texture.
+[ST-08] [1-image] images: NATURE_BEACH edit: Apply Van Gogh style with characteristic swirling brushstrokes and post-impressionist color palette.
+[ST-09] [1-image] images: GUITAR_ACOUSTIC edit: Render as Roy Lichtenstein pop art with Ben-Day dots, bold outlines, and primary colors.
+[ST-10] [1-image] images: KITCHEN_ISLAND_MARBLE_A edit: Convert to architectural line drawing with precise measurements and clean technical geometry.
+[ST-11] [2-image] images: PORTRAIT_CHILD | NATURE_WATERFALL edit: Create fairy tale illustration with magical forest setting and storybook art style.
+[ST-12] [1-image] images: MOTORCYCLE_BLACK edit: Transform into comic book art with dynamic action lines, bold colors, and halftone shading.
+[ST-13] [1-image] images: BUSINESS_HANDSHAKE_OFFICE edit: Apply film noir aesthetic with dramatic chiaroscuro lighting and high contrast monochrome.
+[ST-14] [2-image] images: PORTRAIT_ELDERLY_C | LIBRARY_VINTAGE edit: Create Renaissance portrait with classical painting techniques and period clothing integration.
+[ST-15] [3-image] images: GROUP_FRIENDS_B | NATURE_BEACH | NEON_LIGHTS_ABSTRACT_A edit: Apply retro 1980s synthwave aesthetic with neon colors and nostalgic atmosphere.
+
+# OBJECT ADDITION & ENHANCEMENT — 15 tests for creative object integration
+[OA-01] [1-image] images: PORTRAIT_WOMAN_SMILING_A edit: Add elegant diamond earrings with realistic sparkle, light refraction, and authentic jewelry physics.
+[OA-02] [1-image] images: LIVING_ROOM_MODERN_B edit: Add roaring fireplace to wall with realistic flames, heat glow, and ambient light reflection.
+[OA-03] [1-image] images: CAR_RED_SPORTS edit: Add professional racing stripes and sponsor decals matching automotive design principles.
+[OA-04] [1-image] images: KITCHEN_WHITE edit: Add fresh herb garden on windowsill with terracotta pots and natural growth patterns.
+[OA-05] [1-image] images: DOG_GOLDEN edit: Add colorful bandana with realistic fabric physics, proper knot tying, and natural neck positioning.
+[OA-06] [1-image] images: OFFICE_MODERN edit: Add multiple monitors displaying code, analytics, and productivity software with accurate screen reflections.
+[OA-07] [1-image] images: NATURE_FOREST_AUTUMN_PATH edit: Add cozy wooden cabin in clearing with chimney smoke and realistic architectural integration.
+[OA-08] [1-image] images: BEDROOM_SCANDINAVIAN_A edit: Add string lights creating magical ambiance with proper electrical routing and warm glow.
+[OA-09] [1-image] images: PORTRAIT_MAN_B edit: Add professional glasses and corporate tie while maintaining character identity and facial proportions.
+[OA-10] [1-image] images: CAFE_INTERIOR_B edit: Add customers reading and working with natural cafe behavior and realistic human positioning.
+[OA-11] [2-image] images: NATURE_BEACH_SUNRISE | BUTTERFLY_BLUE_CLOSEUP_A edit: Add multiple butterflies flying naturally around beach scene with realistic flight patterns.
+[OA-12] [1-image] images: STREET_URBAN edit: Add food truck with colorful awning, proper signage, and realistic urban parking integration.
+[OA-13] [2-image] images: CAT_TABBY | PLANT_SUCCULENT edit: Add toy mouse near cat showing natural predator focus and realistic cat behavior.
+[OA-14] [2-image] images: KITCHEN_ISLAND_MARBLE_B | WINE_GLASS edit: Add wine bottle and cheese board for elegant entertaining with proper food styling.
+[OA-15] [3-image] images: PORTRAIT_CHILD | BEDROOM_COZY_B | PLANT_SUCCULENT edit: Create child's educational room with succulent and learning posters.
+
+# SCALE & PERSPECTIVE MANIPULATION — 15 tests for spatial reasoning
+[SP-01] [1-image] images: PORTRAIT_WOMAN_LONG_HAIR edit: Zoom out to full body while maintaining facial detail, expression intensity, and proportional accuracy.
+[SP-02] [1-image] images: CAR_WHITE_SUV_OUTDOOR_A edit: Change to dramatic low angle emphasizing vehicle power and imposing design presence.
+[SP-03] [1-image] images: KITCHEN_ISLAND_MARBLE_A edit: Shift to bird's eye view showing complete kitchen layout and work triangle efficiency.
+[SP-04] [1-image] images: CAT_TABBY_CLOSEUP_A edit: Scale cat to giant size in miniature dollhouse setting with proper physics and lighting relationships.
+[SP-05] [1-image] images: COFFEE_CUP edit: Extreme macro perspective showing foam art detail, steam patterns, and ceramic surface texture.
+[SP-06] [1-image] images: NATURE_WATERFALL edit: Change to worm's eye view looking up through mist and spray toward sky and treetops.
+[SP-07] [1-image] images: OFFICE_MODERN edit: Miniaturize entire office as architectural model with tilt-shift photography effect.
+[SP-08] [1-image] images: GUITAR_ACOUSTIC edit: Extreme close-up of sound hole revealing internal bracing, craftsmanship, and acoustic engineering.
+[SP-09] [1-image] images: PORTRAIT_MAN_YELLOW_BG_A edit: Shift to 3/4 profile maintaining eye contact intensity and facial expression authenticity.
+[SP-10] [1-image] images: NATURE_BEACH edit: Aerial drone perspective showing coastline patterns, wave formations, and geographic scale.
+[SP-11] [2-image] images: BICYCLE_VINTAGE | CITY_SKYLINE edit: Composite bike in dramatic foreground with city backdrop showing proper scale relationships.
+[SP-12] [1-image] images: WATCH_LUXURY edit: Product photography angle with perfect reflections, premium lighting, and luxury presentation standards.
+[SP-13] [1-image] images: BUTTERFLY_COLORFUL edit: Magnify wing patterns showing individual scales, color gradients, and structural detail.
+[SP-14] [2-image] images: SMARTPHONE_IN_HAND_A | PORTRAIT_WOMAN_HAPPY_A edit: Composite woman taking selfie with phone in foreground and proper perspective distortion.
+[SP-15] [3-image] images: PORTRAIT_CHILD | DOG_GOLDEN | NATURE_FOREST_AUTUMN_PATH edit: Create scale relationship showing child and puppies in vast forest environment.
+
+# MOTION & DYNAMICS — 10 tests for movement and temporal effects
+[MD-01] [1-image] images: CAR_WHITE_SUV_OUTDOOR_A edit: Add realistic motion blur to wheels and background suggesting highway speed.
+[MD-02] [1-image] images: DOG_GOLDEN edit: Capture mid-leap action with fur dynamics, paw positioning, and realistic physics.
+[MD-03] [1-image] images: BIRD_PARROT edit: Show wings in flight position with motion blur on wing tips and natural bird aerodynamics.
+[MD-04] [1-image] images: MOTORCYCLE_BLACK_COUNTRY_A edit: Add speed lines and motion blur for racing dynamics down country road.
+[MD-05] [1-image] images: PORTRAIT_WOMAN_CURLY_A edit: Capture hair flowing in gentle breeze with natural movement and realistic hair physics.
+[MD-06] [2-image] images: BICYCLE_VINTAGE | STREET_URBAN edit: Show bicycle in motion with rider pedaling through urban environment and realistic momentum.
+[MD-07] [1-image] images: BUTTERFLY_MONARCH_LEAF_A edit: Capture wings in different flight positions with natural flutter patterns and wing mechanics.
+[MD-08] [1-image] images: COFFEE_CUP edit: Add rising steam with realistic heat distortion, atmospheric perspective, and convection patterns.
+[MD-09] [2-image] images: HORSE_BROWN | NATURE_FOREST_AUTUMN_PATH edit: Show horse galloping with dynamic pose, flowing mane, and ground impact effects.
+[MD-10] [3-image] images: GROUP_FRIENDS_LAUGHING_A | NATURE_BEACH | DRONE_SUNSET_SILHOUETTE_A edit: Capture friends in action with jumping, celebrating, and drone photography perspective.
+
+# WEATHER & ENVIRONMENTAL EFFECTS — 10 tests for atmospheric conditions
+[WE-01] [1-image] images: PORTRAIT_WOMAN_BROWN_HAT edit: Add gentle snowfall with flakes on hair, clothing, and realistic accumulation patterns.
+[WE-02] [1-image] images: CAR_RED_SPORTS edit: Add rain effects with water droplets, wet pavement reflections, and atmospheric moisture.
+[WE-03] [1-image] images: NATURE_WATERFALL_BRIDGE edit: Create heavy fog reducing visibility and adding mysterious atmospheric depth.
+[WE-04] [1-image] images: CITY_SKYLINE edit: Add dramatic storm clouds with lightning illumination and realistic weather patterns.
+[WE-05] [1-image] images: STREET_NYC_CROSSWALK_B edit: Apply post-rain wet pavement with neon light reflections and atmospheric humidity.
+[WE-06] [1-image] images: NATURE_BEACH_SUNRISE edit: Add windstorm effects with sand particle dynamics and palm tree bending physics.
+[WE-07] [1-image] images: WEDDING_COUPLE edit: Create golden hour backlighting with lens flare, atmospheric glow, and romantic warmth.
+[WE-08] [1-image] images: DOG_LABRADOR_BLACK_A edit: Add winter setting with snow on fur and visible breath condensation in cold air.
+[WE-09] [2-image] images: GUITAR_ACOUSTIC | CAFE_INTERIOR_PARIS_A edit: Add cozy winter atmosphere with window frost and warm interior contrast.
+[WE-10] [3-image] images: FAMILY_KITCHEN | WINDOW_LARGE | NATURE_MOUNTAIN_SNOW_WINTER edit: Show family cooking while snowstorm passes outside windows.
+
+# BLEEDING-EDGE PRECISION & IMPOSSIBLE TASKS — 20 tests for absolute model limits
+[BE-01] [2-image] images: WATCH_LUXURY | PORTRAIT_MAN_A edit: Position watch exactly 2.3cm above wrist with anatomically perfect skin deformation and precise shadow physics.
+[BE-02] [3-image] images: COFFEE_CUP | LAPTOP_MAC_CLOSEUP_A | KITCHEN_ISLAND_MARBLE_A edit: Position laptop at exact 23-degree angle showing coffee steam reflection on screen surface.
+[BE-03] [1-image] images: PORTRAIT_WOMAN_CURLY_STUDIO_A edit: Change only left iris to amber while preserving every eyelash, pupil reflection, and corneal micro-detail.
+[BE-04] [1-image] images: WATCH_LUXURY edit: Set time to exactly 3:47:23 with second hand between markers 4-5, maintaining sub-dial precision.
+[BE-05] [1-image] images: WINE_GLASS edit: Fill to exactly 150ml at 47-degree tilt with realistic meniscus physics and zero spillage.
+[BE-06] [2-image] images: MOTORCYCLE_BLACK | NATURE_BEACH edit: Show tire pressure deformation patterns in wet sand with accurate physics and water displacement.
+[BE-07] [1-image] images: CAR_RED_SPORTS edit: Create impossible simultaneous forward and reverse motion blur maintaining visual coherence.
+[BE-08] [2-image] images: PORTRAIT_WOMAN_A | PORTRAIT_MAN_A edit: Create dual-identity face maintaining both complete identities without blending or morphing.
+[BE-09] [1-image] images: BUTTERFLY_BLUE_CLOSEUP_A edit: Show wing scale structures at cellular level while maintaining butterfly context and depth of field.
+[BE-10] [1-image] images: COFFEE_CUP edit: Render steam molecules microscopically while keeping entire cafe scene in perfect background focus.
+[BE-11] [3-image] images: PORTRAIT_CHILD | DOG_GOLDEN | CAT_TABBY edit: Create impossible perspective where child appears simultaneously giant and tiny relative to pets.
+[BE-12] [1-image] images: NATURE_WATERFALL edit: Show every water droplet individually while maintaining waterfall flow and atmospheric composition.
+[BE-13] [2-image] images: PHONE_SMARTPHONE | PORTRAIT_WOMAN_HAPPY_A edit: Create infinite recursion effect with phone screen showing woman taking selfie repeatedly.
+[BE-14] [1-image] images: CITY_SKYLINE edit: Render each building window showing unique interior scenes while maintaining citywide composition.
+[BE-15] [3-image] images: GUITAR_ACOUSTIC | DJ_MIXER_LIGHTS_A | PORTRAIT_MAN_SMILING_BLOND_A edit: Visualize sound waves emanating from guitar with mathematical precision while man plays.
+[BE-16] [2-image] images: PORTRAIT_ELDERLY | PORTRAIT_CHILD edit: Show same person at different ages simultaneously without splitting or temporal effects.
+[BE-17] [1-image] images: NATURE_FOREST_AUTUMN_PATH edit: Display all four seasons in different areas of same forest maintaining environmental coherence.
+[BE-18] [1-image] images: COFFEE_CUP edit: Show liquid simultaneously hot (steaming) and iced (condensation) with contradictory thermal states.
+[BE-19] [2-image] images: PORTRAIT_WOMAN_STUDIO_A | NATURE_BEACH_SUNRISE edit: Place subject simultaneously in foreground and background at different scales maintaining single identity.
+[BE-20] [1-image] images: NATURE_LAKE_MOUNTAIN_REFLECTION edit: Show water flowing in multiple contradictory directions while maintaining realistic surface physics.
+
+# END
