@@ -25,10 +25,10 @@ REPLICATE_API_TOKEN=your_token_here
 
 ### 3. Run Tests
 ```bash
-# Run all 150 comprehensive tests (~$52.50)
+# Run all 150 comprehensive tests (~$20)
 python3 four_panel_list_slow_edit_fixed.py category_prompts_E.txt --continue-on-error
 
-# Run just 3 tests for quick verification (~$1.05)
+# Run just 3 tests for quick verification (~$0.30)
 python3 four_panel_list_slow_edit_fixed.py category_prompts_E.txt --start-from 1 --max-prompts 3 --continue-on-error
 ```
 
