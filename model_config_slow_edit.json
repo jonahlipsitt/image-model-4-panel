@@ -1,0 +1,129 @@
+{
+    "providers": {
+        "replicate": {
+            "api_token_env": "REPLICATE_API_TOKEN",
+            "api_base_url": "https://api.replicate.com/v1",
+            "poll_interval_seconds": 3.0,
+            "request_timeout_seconds": 600.0
+        }
+    },
+    "composition": {
+        "tile_size": 1536,
+        "margin": 8,
+        "background_color": "#101012"
+    },
+    "panel_defaults": {
+        "count": 4,
+        "selection": [
+            "gpt_image_1",
+            "qwen_edit_plus",
+            "nano_latest",
+            "seedream_latest"
+        ]
+    },
+    "catalog": [
+        {
+            "id": "gpt_image_1",
+            "name": "GPT Image 1",
+            "description": "OpenAI's GPT-based image generation and editing model.",
+            "provider": "replicate",
+            "model": "openai/gpt-image-1",
+            "version_index": 0,
+            "input": {
+                "prompt": "{{prompt}}",
+                "input_images": [],
+                "openai_api_key": "{{OPENAI_API_KEY}}"
+            },
+            "placeholders": [
+                {
+                    "name": "input_images",
+                    "prompt": "GPT Image input images (comma separated, required for editing)",
+                    "type": "list",
+                    "target": "input.input_images", 
+                    "default": [],
+                    "required": true,
+                    "omit_if_none": false
+                }
+            ],
+            "supports_image_input": true
+        },
+        {
+            "id": "qwen_edit_plus",
+            "name": "Qwen Image Edit Plus",
+            "description": "Qwen image editing with multiple image inputs and pose transfer.",
+            "provider": "replicate",
+            "model": "qwen/qwen-image-edit-plus",
+            "version_index": 0,
+            "input": {
+                "prompt": "{{prompt}}",
+                "image": [],
+                "width": 1024,
+                "height": 1024,
+                "aspect_ratio": "1:1"
+            },
+            "placeholders": [
+                {
+                    "name": "image",
+                    "prompt": "Qwen Edit Plus image URLs (comma separated, required)",
+                    "type": "list", 
+                    "target": "input.image",
+                    "default": [],
+                    "required": true,
+                    "omit_if_none": false
+                }
+            ],
+            "supports_image_input": true
+        },
+        {
+            "id": "nano_latest",
+            "name": "Nano Banana (latest)",
+            "description": "Google's latest Gemini 2.5-based text to image model.",
+            "provider": "replicate",
+            "model": "google/nano-banana",
+            "version_index": 0,
+            "input": {
+                "prompt": "{{prompt}}",
+                "output_format": "png",
+                "image_input": []
+            },
+            "placeholders": [
+                {
+                    "name": "image_input",
+                    "prompt": "Nano Banana reference image URLs (comma separated, required for editing)",
+                    "type": "list",
+                    "target": "input.image_input",
+                    "default": [],
+                    "required": true,
+                    "omit_if_none": false
+                }
+            ],
+            "supports_image_input": true
+        },
+        {
+            "id": "seedream_latest",
+            "name": "Seedream 4 (latest)",
+            "description": "ByteDance Seedream 4 with 1K square render settings.",
+            "provider": "replicate",
+            "model": "bytedance/seedream-4",
+            "version_index": 0,
+            "input": {
+                "prompt": "{{prompt}}",
+                "size": "1K",
+                "aspect_ratio": "1:1",
+                "image_input": []
+            },
+            "supports_image_input": true,
+            "placeholders": [
+                {
+                    "name": "image_input",
+                    "prompt": "Seedream reference image URLs (comma separated, required for editing)",
+                    "type": "list",
+                    "target": "input.image_input",
+                    "default": [],
+                    "required": true,
+                    "omit_if_none": false
+                }
+            ]
+        }
+    ]
+}
